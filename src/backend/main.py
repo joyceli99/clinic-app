@@ -5,6 +5,10 @@ from typing import List
 import models
 import schemas
 import database
+from database import engine # For models.Base.metadata.create_all
+
+# Create database tables
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
